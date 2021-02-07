@@ -1,0 +1,292 @@
+[
+  {
+    "id": 0,
+    "name": "WELT",
+    "url": "https://www.welt.de/feeds/latest.rss"
+  },
+  {
+    "id": 1,
+    "name": "Focus",
+    "url": "https://rss.focus.de/fol/XML/rss_folnews.xml"
+  },
+  {
+    "id": 2,
+    "name": "ZEIT",
+    "url": "https://newsfeed.zeit.de/all"
+  },
+  {
+    "id": 3,
+    "name": "Bild",
+    "url": "https://www.bild.de/rssfeeds/vw-home/vw-home-16725562,sort=1,view=rss2.bild.xml"
+  },
+  {
+    "id": 4,
+    "name": "SZ",
+    "url": "https://rss.sueddeutsche.de/app/service/rss/alles/index.rss?output=rss"
+  },
+  {
+    "id": 5,
+    "name": "n-tv",
+    "url": "https://www.n-tv.de/rss"
+  },
+  {
+    "id": 6,
+    "name": "SPIEGEL",
+    "url": "https://www.spiegel.de/schlagzeilen/index.rss"
+  },
+  {
+    "id": 7,
+    "name": "Stern",
+    "url": "https://www.stern.de/feed/standard/all/"
+  },
+  {
+    "id": 8,
+    "name": "FAZ",
+    "url": "https://www.faz.net/rss/aktuell/"
+  },
+  {
+    "id": 9,
+    "name": "Handelsblatt",
+    "url": "https://www.handelsblatt.com/contentexport/feed/schlagzeilen"
+  },
+  {
+    "id": 10,
+    "name": "HAZ",
+    "url": "https://www.haz.de/rss/feed/haz_schlagzeilen"
+  },
+  {
+    "id": 11,
+    "name": "ND",
+    "url": "https://www.neues-deutschland.de/rss/neues-deutschland.xml"
+  },
+  {
+    "id": 12,
+    "name": "AZ",
+    "url": "https://www.aachener-zeitung.de/nrw-region/feed.rss"
+  },
+  {
+    "id": 13,
+    "name": "Tagesspiegel",
+    "url": "https://www.tagesspiegel.de/contentexport/feed/home"
+  },
+  {
+    "id": 14,
+    "name": "ARD Tagesschau",
+    "url": "https://www.tagesschau.de/xml/rss2/"
+  },
+  {
+    "id": 15,
+    "name": "taz",
+    "url": "https://taz.de/!p4608;rss/"
+  },
+  {
+    "id": 16,
+    "name": "Berliner Morgenpost",
+    "url": "https://www.morgenpost.de/?service=Rss"
+  },
+  {
+    "id": 17,
+    "name": "WAZ",
+    "url": "https://www.waz.de/rss"
+  },
+  {
+    "id": 18,
+    "name": "Hamburger Abendblatt",
+    "url": "https://www.abendblatt.de/?service=Rss"
+  },
+  {
+    "id": 19,
+    "name": "Hessenschau",
+    "url": "https://www.hessenschau.de/index.rss"
+  },
+  {
+    "id": 22,
+    "name": "T-Online",
+    "url": "https://feeds.t-online.de/rss/nachrichten"
+  },
+  {
+    "id": 23,
+    "name": "RP Online",
+    "url": "https://rp-online.de/feed.rss"
+  },
+  {
+    "id": 24,
+    "name": "Yahoo!",
+    "url": "https://de.nachrichten.yahoo.com/rss"
+  },
+  {
+    "id": 25,
+    "name": "BZ",
+    "url": "https://www.bz-berlin.de/feed"
+  },
+  {
+    "id": 26,
+    "name": "Berliner Zeitung",
+    "url": "https://www.berliner-zeitung.de/feed.xml"
+  },
+  {
+    "id": 27,
+    "name": "Deutschlandfunk",
+    "url": "https://www.deutschlandfunk.de/die-nachrichten.353.de.rss"
+  },
+  {
+    "id": 28,
+    "name": "Deutsche Welle",
+    "url": "https://rss.dw.com/xml/rss-de-all"
+  },
+  {
+    "id": 29,
+    "name": "MZ",
+    "url": "https://www.mz-web.de/feed/yahoo.rss"
+  },
+  {
+    "id": 30,
+    "name": "NDR",
+    "url": "https://www.ndr.de/index-rss.xml"
+  },
+  {
+    "id": 31,
+    "name": "Die Presse",
+    "url": "https://www.diepresse.com/rss/"
+  },
+  {
+    "id": 32,
+    "name": "WDR",
+    "url": "https://www1.wdr.de/wissen/uebersicht-nachrichten-100.feed"
+  },
+  {
+    "id": 33,
+    "name": "SWR",
+    "url": "https://www.swr.de/export:xml:rss/swraktuell/swraktuell-100.html"
+  },
+  {
+    "id": 34,
+    "name": "Stuttgarter Zeitung",
+    "url": "https://www.stuttgarter-zeitung.de/news.rss.feed"
+  },
+  {
+    "id": 35,
+    "name": "ZDF Heute",
+    "url": "https://www.zdf.de/rss/zdf/nachrichten"
+  },
+  {
+    "id": 37,
+    "name": "Der Freitag",
+    "url": "https://www.freitag.de/@@RSS"
+  },
+  {
+    "id": 38,
+    "name": "Netzpolitik",
+    "url": "https://netzpolitik.org/feed/"
+  },
+  {
+    "id": 39,
+    "name": "Wirtschaftswoche",
+    "url": "https://www.wiwo.de/contentexport/feed/rss/schlagzeilen"
+  },
+  {
+    "id": 40,
+    "name": "WZ",
+    "url": "https://www.wz.de/feed.rss"
+  },
+  {
+    "id": 41,
+    "name": "Frankfurter Rundschau",
+    "url": "https://www.fr.de/rssfeed.rdf"
+  },
+  {
+    "id": 42,
+    "name": "Köln Stadt-Anzeiger",
+    "url": "https://www.ksta.de/feed/index.rss"
+  },
+  {
+    "id": 43,
+    "name": "Aller-Zeitung",
+    "url": "https://www.waz-online.de/rss/feed/waz_schlagzeilen"
+  },
+  {
+    "id": 44,
+    "name": "rbb",
+    "url": "https://www.rbb24.de/aktuell/index.xml/feed=rss.xml"
+  },
+  {
+    "id": 45,
+    "name": "MDR",
+    "url": "https://www.mdr.de/nachrichten/nachrichten100-rss.xml"
+  },
+  {
+    "id": 46,
+    "name": "BR",
+    "url": "https://nachrichtenfeeds.br.de/rdf/boards/QXAPkQJ"
+  },
+  {
+    "id": 47,
+    "name": "Rhein-Neckar-Zeitung",
+    "url": "https://www.rnz.de/feed/6-regionalticker.xml"
+  },
+  {
+    "id": 48,
+    "name": "PNN",
+    "url": "https://www.pnn.de/contentexport/feed/home"
+  },
+  {
+    "id": 49,
+    "name": "Watson",
+    "url": "https://www.watson.de/api/1.0/rss/index.xml"
+  },
+  {
+    "id": 50,
+    "name": "Thüringsche Landeszeitung",
+    "url": "https://www.tlz.de/?service=Rss"
+  },
+  {
+    "id": 51,
+    "name": "Hildesheimer Presse",
+    "url": "https://hildesheimer-presse.de/feed/"
+  },
+  {
+    "id": 52,
+    "name": "Vice",
+    "url": "https://www.vice.com/de/rss"
+  },
+  {
+    "id": 53,
+    "name": "Wuppertaler Rundschau",
+    "url": "https://www.wuppertaler-rundschau.de/feed.rss"
+  },
+  {
+    "id": 54,
+    "name": "Westfalenpost",
+    "url": "https://www.wp.de/rss"
+  },
+  {
+    "id": 55,
+    "name": "NRZ",
+    "url": "https://www.nrz.de/rss"
+  },
+  {
+    "id": 56,
+    "name": "Merkur",
+    "url": "https://www.merkur.de/rssfeed.rdf"
+  },
+  {
+    "id": 57,
+    "name": "Mannheimer Morgen",
+    "url": "https://www.morgenweb.de/feed/55-politik-rss-feed.xml"
+  },
+  {
+    "id": 58,
+    "name": "Spreezeitung",
+    "url": "https://www.spreezeitung.de/feed/"
+  },
+  {
+    "id": 59,
+    "name": "Neue Osnabrücker Zeitung",
+    "url": "https://www.noz.de/rss/ressort/Osnabr%C3%BCck"
+  },
+  {
+    "id": 60,
+    "name": "Buzzfeed",
+    "url": "https://www.buzzfeed.de/recherchen/rssfeed.xml"
+  }
+]

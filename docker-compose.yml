@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  crawler:
+    build: crawler
+    container_name: newscorpus_crawler
+    env_file:
+      - .env
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:4
+    container_name: newscorpus_mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_DB_NAME}
+    volumes:
+      - ./mongo_data:/data/db
+    expose:
+      - 27017
+    # ports:
+    #   - "27019:27017"
