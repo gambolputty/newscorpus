@@ -1,5 +1,5 @@
 # Newscorpus 📰🐳🐍
-Automated news articles crawling for German news outlets (see [sources.json](crawler/app/assets/sources.json)).
+Automated news article crawling from German news websites (see [sources.json](crawler/app/assets/sources.json)).
 Written in Python, completely dockerized, uses MongoDB as database.
 
 ## Setup
