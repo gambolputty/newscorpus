@@ -1,6 +1,6 @@
 # Newscorpus 📰🐳🐍
-Automated news article crawling from German news websites (see [sources.json](crawler/app/assets/sources.json)).
-Written in Python, completely dockerized, uses MongoDB as database.
+Automated news article crawling from German news websites (~60 sources, see [sources.json](crawler/app/assets/sources.json)).
+Written in Python, completely dockerized, uses MongoDB as database and [Newspaper](https://github.com/codelucas/newspaper/) as a content extractor.
 
 ## Setup
 1. Clone this repository `git clone git@github.com:gambolputty/newscorpus.git && cd newscorpus`
