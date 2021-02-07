@@ -3,8 +3,9 @@ Automated news article crawling from German news websites (see [sources.json](cr
 Written in Python, completely dockerized, uses MongoDB as database.
 
 ## Setup
-1. Save `.env.example` to `.env` and edit it (see __"Config"__).
-2. Run `docker-compose up --build` to create the crawler- and database-container (`-d` to detach the docker process).
+1. Clone this repository `git clone git@github.com:gambolputty/newscorpus.git && cd newscorpus`
+2. Save `.env.example` to `.env` and edit it (see __"Config"__).
+3. Run `docker-compose up --build` to create the crawler- and database-container (`-d` to detach the docker process).
 
 ## Usage
 To start the crawling process run `docker-compose run --rm crawler python -m app crawl` (`-d` to detach the docker process). Ideally execute this command as a cron job.
