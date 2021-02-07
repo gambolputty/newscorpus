@@ -1,6 +1,6 @@
 # Newscorpus 📰🐳🐍
-Automated news article crawling from German news websites (~60 sources, see [sources.json](crawler/app/assets/sources.json)).
-Completely dockerized, written in Python, uses [Newspaper](https://github.com/codelucas/newspaper/) as a content extractor and MongoDB as database.
+Docker setup for automated news article crawling from German news websites (~60 sources, see [sources.json](crawler/app/assets/sources.json)).
+Written in Python, uses [Newspaper](https://pypi.org/project/newspaper3k/) as a content extractor and MongoDB as database.
 
 Development environment is ready to be used with [VSCode](https://code.visualstudio.com/docs/remote/containers) and the [Remote Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
 
