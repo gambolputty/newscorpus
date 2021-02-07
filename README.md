@@ -35,11 +35,13 @@ The are two scripts to backup and restore the MongoDb database:
 Make sure your `.env` file is configured properly and both files are executeable before using them (e.g. `chmod +x db_backup.sh`).
 
 
-## Example database document:
+## Example database document (with MongoDB fields):
 
 ```json
 {
-  "_id": "5e0ec55caf879ef7de34682d",
+  "_id": {
+    "$oid": "5e0ec55caf879ef7de34682d"
+  },
   "title": "Sudan: 18 Tote bei Absturz von Lazarettmaschine",
   "published_at": {
     "$date": "2020-01-02T21:06:08.000Z"
