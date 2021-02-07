@@ -2,6 +2,8 @@
 Automated news article crawling from German news websites (~60 sources, see [sources.json](crawler/app/assets/sources.json)).
 Completely dockerized, written in Python, uses [Newspaper](https://github.com/codelucas/newspaper/) as a content extractor and MongoDB as database.
 
+Development environment is ready to be used with [VSCode](https://code.visualstudio.com/docs/remote/containers) and the [Remote Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
+
 ## Setup
 1. Clone this repository `git clone git@github.com:gambolputty/newscorpus.git && cd newscorpus`
 2. Save `.env.example` to `.env` and edit it (see __"Config"__).
@@ -24,8 +26,8 @@ Environment variables in `.env`:
 ## Dev setup
 1. Save `.env.example` to `.env` and edit it (see "Config").
 2. Two options:
-  - With VSCode and "Remote-Containers"-Extension: `Remote-Containers: Reopen in Container` or
-  - Run `docker-compose -f docker-compose.debug.yml up --build` to create the crawler- and database-container.
+  - With VSCode and "Remote-Containers"-Extension: `Remote-Containers: Reopen in Container`
+  - Without VSCoce: run `docker-compose -f docker-compose.debug.yml up --build` to create the crawler- and database-container.
 
 
 ## Backup and restore
