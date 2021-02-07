@@ -1,3 +1,7 @@
+### Newscorpus
+Automated news articles crawling for German news outlets (see [sources.json](crawler/app/assets/sources.json)).
+Written in Python, completely dockerized, uses MongoDB as database.
+
 ## Setup
 1. Save `.env.example` to `.env` and edit it (see __"Config"__).
 2. Run `docker-compose up --build` to create the crawler- and database-container (`-d` to detach the docker process).
@@ -29,3 +33,22 @@ The are two scripts to backup and restore the MongoDb database:
 - `db_restore.sh`
 
 Make sure your `.env` file is configured properly and both files are executeable before using them (e.g. `chmod +x db_backup.sh`).
+
+
+## Example database document:
+
+```json
+{
+  "_id": "5e0ec55caf879ef7de34682d",
+  "title": "Sudan: 18 Tote bei Absturz von Lazarettmaschine",
+  "published_at": {
+    "$date": "2020-01-02T21:06:08.000Z"
+  },
+  "created_at": {
+    "$date": "2020-01-03T05:38:37.541Z"
+  },
+  "url": "https://www.sueddeutsche.de/politik/sudan-flugzeugabsturz-roter-halbmond-1.4743878",
+  "src": 4,
+  "text": "Nach Angaben der Hilfsorganisation Roter Halbmond sollte das Flugzeug Patienten in die Hauptstadt fliegen. Die Menschen waren bei heftigen Kämpfen verletzt worden.\n\nIm Sudan sind beim Absturz einer Lazarettmaschine des Militärs nach offiziellen Angaben alle 18 Menschen an Bord ums Leben gekommen. Bei den Toten handele es sich um sieben Besatzungsmitglieder, drei Richter und acht weitere Zivilisten, teilt der Sprecher des Militärs, General Amer Muhammad Al-Hassan, mit.\n\nDas Flugzeug vom Typ Antonow habe fünf Minuten nach dem Start vom Flughafen der Stadt El Geneina im Westen des Landes aus unbekannter Ursache an Höhe verloren und sei am Boden zerschellt. Ihr Ziel war Khartum, die Hauptstadt des ostafrikanischen Landes.\n\nDas Flugzeug sollte nach Angaben der sudanesischen Hilfsorganisation Roter Halbmond Patienten zur Behandlung in die Hauptstadt fliegen. Die Menschen seien in den vergangenen Tagen bei heftigen Kämpfen in den vergangenen Tagen zwischen rivalisierenden Volksgruppen in Darfur verletzt worden. Dabei habe es nach Angaben des Roten Halbmondes insgesamt 48 Tote und Dutzende Verletzte gegeben.\n\nIn Darfur an der Grenze zum Tschad kämpfen Rebellen seit mehr als einem Jahrzehnt gegen Truppen der Zentralregierung und mit ihnen verbündete lokale arabische Milizen."
+}
+```
