@@ -1,4 +1,4 @@
-### Newscorpus
+### Newscorpus 📰🐳🐍
 Automated news articles crawling for German news outlets (see [sources.json](crawler/app/assets/sources.json)).
 Written in Python, completely dockerized, uses MongoDB as database.
 
@@ -12,12 +12,12 @@ To start the crawling process run `docker-compose run --rm crawler python -m app
 ## Config
 Environment variables in `.env`:
 
-| Variable                | Description                                                                                                                        |   |
-|-------------------------|------------------------------------------------------------------------------------------------------------------------------------|---|
-| PYTHON_ENV              | `production` or `development` (verbose logging)                                                                                    |   |
-| MONGO_USER              | MongoDB user name                                                                                                                  |   |
-| MONGO_PASSWORD          | MongoDB password                                                                                                                   |   |
-| MONGO_DB_NAME           | MongoDB database name                                                                                                              |   |
+| Variable                | Description                                                                                                                        |
+|-------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| PYTHON_ENV              | `production` or `development` (verbose logging)                                                                                    |
+| MONGO_USER              | MongoDB user name                                                                                                                  |
+| MONGO_PASSWORD          | MongoDB password                                                                                                                   |
+| MONGO_DB_NAME           | MongoDB database name                                                                                                              |
 | MONGO_CREATE_TEXT_INDEX | `true` or `1` to let MongoDB create a text index (helpful for [text search](https://docs.mongodb.com/manual/text-search/)) |   |
 
 ## Dev setup
