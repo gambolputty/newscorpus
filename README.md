@@ -31,9 +31,9 @@ Environment variables in `.env`:
 
 
 ## Backup and restore
-The are two scripts to backup and restore the MongoDb database:
+The are two scripts to backup and restore the database:
 - `db_backup.sh`
-- `db_restore.sh`
+- `db_restore.sh` (be aware that this will drop all collections first)
 
 Make sure your `.env` file is configured properly and both files are executeable before using them (e.g. `chmod +x db_backup.sh`).
 
