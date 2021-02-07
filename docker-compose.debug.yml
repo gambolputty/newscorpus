@@ -26,7 +26,7 @@ services:
     expose:
       - 27017
     ports:
-      - "27019:27017"
+      - "27019:27017" # Port 27019 is exposed in dev mode
 
 volumes:
   crawler-bashhistory:

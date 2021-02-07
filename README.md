@@ -30,7 +30,8 @@ Environment variables in `.env`:
   - Without VSCoce: run `docker-compose -f docker-compose.debug.yml up --build` to create the crawler- and database-container.
 
 
-## Backup and restore
+## Database backup and restore
+The database volume is mapped to a folder named `mongo_data` which is located in the root of this project.
 The are two scripts to backup and restore the database:
 - `db_backup.sh`
 - `db_restore.sh` (be aware that this will drop all collections first)
