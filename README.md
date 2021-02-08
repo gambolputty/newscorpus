@@ -6,13 +6,13 @@ Development environment is ready to be used with [VSCode](https://code.visualstu
 
 ## Setup
 1. Clone this repository `git clone git@github.com:gambolputty/newscorpus.git && cd newscorpus`
-2. Save `.env.example` to `.env` and edit it (see __"Config"__).
+2. Save `.env.example` to `.env` and edit it (see __"Configuration"__).
 3. Run `docker-compose up --build` to create the crawler- and database-container (`-d` to detach the docker process).
 
 ## Usage
 To start the crawling process simply run `docker-compose run --rm crawler python -m app crawl` (`-d` to detach the docker process). Ideally execute this command as a cron job.
 
-## Config
+## Configuration
 Environment variables in `.env`:
 
 | Variable                | Description                                                                                                                        |
@@ -23,10 +23,12 @@ Environment variables in `.env`:
 | MONGO_DB_NAME           | MongoDB database name                                                                                                              |
 | MONGO_CREATE_TEXT_INDEX | `true` or `1` to let MongoDB create a text index (helpful for [text search](https://docs.mongodb.com/manual/text-search/)) |   |
 
+At the moment, there are no more options. If you want to change the sources being crawled, take a look at [sources.json](crawler/app/assets/sources.json).
+
 ## Dev setup
 1. Save `.env.example` to `.env` and edit it (see "Config").
 2. Two options:
-  - With VSCode and "Remote-Containers"-Extension: `Remote-Containers: Reopen in Container`
+  - With VSCode and "Remote-Containers"-Extension: `Remote-Containers: Reopen in Container` ([working inside a Docker container](https://code.visualstudio.com/docs/remote/containers))
   - Without VSCoce: run `docker-compose -f docker-compose.debug.yml up --build` to create the crawler- and database-container.
 
 
@@ -58,6 +60,9 @@ Make sure your `.env` file is configured properly and both files are executeable
   "text": "Nach Angaben der Hilfsorganisation Roter Halbmond sollte das Flugzeug Patienten in die Hauptstadt fliegen. Die Menschen waren bei heftigen Kämpfen verletzt worden.\n\nIm Sudan sind beim Absturz einer Lazarettmaschine des Militärs nach offiziellen Angaben alle 18 Menschen an Bord ums Leben gekommen. Bei den Toten handele es sich um sieben Besatzungsmitglieder, drei Richter und acht weitere Zivilisten, teilt der Sprecher des Militärs, General Amer Muhammad Al-Hassan, mit.\n\nDas Flugzeug vom Typ Antonow habe fünf Minuten nach dem Start vom Flughafen der Stadt El Geneina im Westen des Landes aus unbekannter Ursache an Höhe verloren und sei am Boden zerschellt. Ihr Ziel war Khartum, die Hauptstadt des ostafrikanischen Landes.\n\nDas Flugzeug sollte nach Angaben der sudanesischen Hilfsorganisation Roter Halbmond Patienten zur Behandlung in die Hauptstadt fliegen. Die Menschen seien in den vergangenen Tagen bei heftigen Kämpfen in den vergangenen Tagen zwischen rivalisierenden Volksgruppen in Darfur verletzt worden. Dabei habe es nach Angaben des Roten Halbmondes insgesamt 48 Tote und Dutzende Verletzte gegeben.\n\nIn Darfur an der Grenze zum Tschad kämpfen Rebellen seit mehr als einem Jahrzehnt gegen Truppen der Zentralregierung und mit ihnen verbündete lokale arabische Milizen."
 }
 ```
+
+## Acknowledgements
+- [IFG-Ticker](https://github.com/beyondopen/ifg-ticker) for some source
 
 ## License
 [GNU AFFERO GENERAL PUBLIC LICENSE](LICENSE)

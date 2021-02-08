@@ -21,6 +21,6 @@ services:
       - ./mongo_data:/data/db
     expose:
       - 27017
-    # Uncomment the next two lines to expose the database port 27019 to the public
+    # Uncomment the next two lines to expose the database port 27019 on your hosting machine
     # ports:
     #   - "27019:27017"
