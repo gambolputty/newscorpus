@@ -23,7 +23,7 @@ Environment variables in `.env`:
 | MONGO_DB_NAME           | MongoDB database name                                                                                                              |
 | MONGO_CREATE_TEXT_INDEX | `true` or `1` to let MongoDB create a text index (helpful for [text search](https://docs.mongodb.com/manual/text-search/)) |   |
 
-At the moment, there are no more options. If you want to change the sources being crawled, take a look at [sources.json](crawler/app/assets/sources.json).
+At the moment, there are no other options. If you want to change the sources being crawled, take a look at [sources.json](crawler/app/assets/sources.json).
 
 ## Dev setup
 1. Save `.env.example` to `.env` and edit it (see "Config").
