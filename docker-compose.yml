@@ -8,6 +8,8 @@ services:
       - .env
     depends_on:
       - mongo
+    networks:
+      - newscorpus_network
 
   mongo:
     image: mongo:4
@@ -23,3 +25,9 @@ services:
       - 27017
     ports:
       - "${MONGO_OUTSIDE_PORT}:27017"
+    networks:
+      - newscorpus_network
+
+networks:
+  newscorpus_network:
+    name: newscorpus_network
