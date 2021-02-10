@@ -16,23 +16,24 @@ from app.database.create_client import create_client
 from app.crawler.random_user_agent import random_user_agent
 
 
-create_rotating_log(config.logs_dir_path.joinpath("crawlerlog"))
+create_rotating_log(config.LOGS_PATH.joinpath("crawlerlog"))
 logger = logging.getLogger("rotating_log")
 
 MIN_TEXT_LENGTH = 350
-DISCARD_OLDER_THAN_DAYS = 2
-MAX_WORKERS = 4
 
 
 def init():
     ts = time()
     logger.info('Downloading new articles')
 
+    if config.MAX_WORKERS:
+        logger.info(f'Maximum crawler workers: {config.MAX_WORKERS}')
+
     # load sources
-    with open(config.sources_path, encoding='utf-8') as f:
+    with open(config.SOURCES_PATH, encoding='utf-8') as f:
         sources = json.load(f)
 
-    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+    with ThreadPoolExecutor(max_workers=config.MAX_WORKERS) as executor:
         executor.map(scrape_source, sources)
 
     logger.info(f"Downloading done in {time() - ts}")
@@ -107,9 +108,9 @@ def process_feed_item(feed_item, source, articles_in_memory, db):
 
     # date must be withing last n days
     difference = datetime.now() - published_at
-    if difference.days > DISCARD_OLDER_THAN_DAYS:
+    if difference.days > config.KEEP_DAYS:
         logger.debug(
-            f'Skip: Article older than {DISCARD_OLDER_THAN_DAYS} days ({published_at})'
+            f'Skip: Article older than {config.KEEP_DAYS} days ({published_at})'
         )
         return False
 

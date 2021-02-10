@@ -8,22 +8,26 @@ Description=Newscorpus
 After=docker.service
 
 [Service]
-User=newscorpus
+Restart=on-failure
+RestartSec=5s
+User=username
 
 Type=oneshot
 RemainAfterExit=yes
+StandardOutput=file:/var/log/newscorpus.log
+StandardError=file:/var/log/newscorpus_error.log
 
 WorkingDirectory=/path/to/newscorpus
-ExecStart=/usr/local/bin/docker-compose up -d
-ExecStop=/usr/local/bin/docker-compose down
+ExecStart=/path/to/docker-compose/docker-compose up -d
+ExecStop=/path/to/docker-compose/docker-compose down
 
 [Install]
 WantedBy=multi-user.target
 ```
 
 3. Commands:
-1. `systemctl enable newscorpus`
-2. `systemctl start newscorpus`
+Enable the service:
+- `systemctl enable newscorpus`
 
 Then:
 - `service newscorpus status`

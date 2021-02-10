@@ -17,6 +17,3 @@ cmd = sys.argv[1]
 if cmd == 'crawl':
     from app import crawler
     crawler.init()
-# elif cmd == 'dups':
-#     from .database.remove_duplicates import remove_duplicates
-#     remove_duplicates()

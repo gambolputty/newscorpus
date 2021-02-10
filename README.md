@@ -21,7 +21,10 @@ Environment variables in `.env`:
 | MONGO_USER              | MongoDB user name                                                                                                                  |
 | MONGO_PASSWORD          | MongoDB password                                                                                                                   |
 | MONGO_DB_NAME           | MongoDB database name                                                                                                              |
-| MONGO_CREATE_TEXT_INDEX | `true` or `1` to let MongoDB create a text index (helpful for [text search](https://docs.mongodb.com/manual/text-search/)) |   |
+| MONGO_CREATE_TEXT_INDEX | `true` or `1` to let MongoDB create a text index (helpful for [text search](https://docs.mongodb.com/manual/text-search/))         |
+| MONGO_OUTSIDE_PORT      | Exposed MongoDB port on your host machine.                                                                                         |
+| MAX_WORKERS             | Number of worker threads for the crawler. Remove for auto assignment.                                                         |
+| KEEP_DAYS               | Discard articles older than **n** days. Default is "2".                                                                            |
 
 At the moment, there are no other options. If you want to change the sources being crawled, take a look at [sources.json](crawler/app/assets/sources.json).
 
