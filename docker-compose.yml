@@ -8,6 +8,8 @@ services:
       - .env
     depends_on:
       - mongo
+    networks:
+      - newscorpus_network
 
   mongo:
     image: mongo:4
@@ -21,6 +23,11 @@ services:
       - ./mongo_data:/data/db
     expose:
       - 27017
-    # The next two lines will expose the database port 27019 on your hosting machine
     ports:
-      - "27019:27017"
+      - "${MONGO_OUTSIDE_PORT}:27017"
+    networks:
+      - newscorpus_network
+
+networks:
+  newscorpus_network:
+    name: newscorpus_network

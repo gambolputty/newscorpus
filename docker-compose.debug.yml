@@ -11,6 +11,8 @@ services:
       - crawler-bashhistory:/commandhistory # Persist bash history
     depends_on:
       - mongo
+    networks:
+      - newscorpus_network
     command: tail -f /dev/null # keep shell attached
 
   mongo:
@@ -26,7 +28,13 @@ services:
     expose:
       - 27017
     ports:
-      - "27019:27017" # Port 27019 is exposed in dev mode on your hosting machine
+      - "${MONGO_OUTSIDE_PORT}:27017"
+    networks:
+      - newscorpus_network
 
 volumes:
   crawler-bashhistory:
+
+networks:
+  newscorpus_network:
+   name: newscorpus_network

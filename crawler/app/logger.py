@@ -8,8 +8,8 @@ from app import config
 # logger examples: https://www.programcreek.com/python/example/1475/logging.handlers.RotatingFileHandler
 
 # create log folder if not exist
-if os.path.isdir(config.logs_dir_path) is False:
-    os.mkdir(config.logs_dir_path)
+if os.path.isdir(config.LOGS_PATH) is False:
+    os.mkdir(config.LOGS_PATH)
 
 
 def create_rotating_log(path):
@@ -17,7 +17,7 @@ def create_rotating_log(path):
     Creates a rotating log
     """
     logger = logging.getLogger('rotating_log')
-    logger.setLevel(logging.DEBUG if config.env == 'development' else logging.INFO)
+    logger.setLevel(logging.DEBUG if config.ENV == 'development' else logging.INFO)
     rotation_handler = RotatingFileHandler(path, maxBytes=1000000, backupCount=4, encoding='utf-8')
     rotation_handler.setFormatter(logging.Formatter('%(levelname)s:%(asctime)s: %(message)s'))
     logger.addHandler(rotation_handler)
