@@ -25,6 +25,7 @@ MIN_TEXT_LENGTH = 350
 def init():
     ts = time()
     logger.info('Downloading new articles')
+    logger.info(f'Ignoring articles older than {config.KEEP_DAYS} days')
 
     if config.MAX_WORKERS:
         logger.info(f'Maximum crawler workers: {config.MAX_WORKERS}')
