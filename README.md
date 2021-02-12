@@ -10,7 +10,11 @@ Development environment is ready to be used with [VSCode](https://code.visualstu
 3. Run `docker-compose up --build` to create the crawler- and database-container (`-d` to detach the docker process).
 
 ## Usage
-To start the crawling process simply run `docker-compose run --rm crawler ./crawl.sh` (`-d` after `--rm` to detach the docker process). Ideally execute this command as a cron job.
+To start the crawling process run:
+
+`docker-compose run --rm crawler ./crawl.sh`
+
+Add `-d` after `--rm` to detach the docker process. Ideally execute this command as a cron job.
 
 ## Configuration
 Environment variables in `.env`:
