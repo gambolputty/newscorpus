@@ -7,7 +7,7 @@ ENV = os.getenv('PYTHON_ENV', 'development')
 ROOT_PATH = Path.cwd()
 ROOT_PATH = ROOT_PATH.joinpath('app')
 
-SOURCES_PATH = ROOT_PATH.joinpath('assets', 'sources.json')
+SOURCES_PATH = ROOT_PATH.joinpath('sources.json')
 LOGS_PATH = ROOT_PATH.joinpath('logs')
 
 # general

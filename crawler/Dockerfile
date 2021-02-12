@@ -24,6 +24,8 @@ WORKDIR /code
 # Copy the source code of the project into the container.
 COPY . .
 
+RUN chmod +x crawl.sh
+
 # Persist bash history (see docker-compose file)
 RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhistory/.bash_history" \
     && echo $SNIPPET >> "/root/.bashrc"
