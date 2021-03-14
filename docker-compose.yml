@@ -21,6 +21,7 @@ services:
       MONGO_INITDB_DATABASE: ${MONGO_DB_NAME}
     volumes:
       - ./mongo_data:/data/db
+    command: --wiredTigerCacheSizeGB 1.5
     expose:
       - 27017
     ports:
