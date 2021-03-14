@@ -6,6 +6,8 @@ services:
     container_name: newscorpus_crawler
     env_file:
       - .env
+    volumes:
+      - ./crawler/app/logs:/code/app/logs
     depends_on:
       - mongo
     networks:
