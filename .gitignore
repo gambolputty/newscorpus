@@ -130,8 +130,6 @@ dmypy.json
 
 .DS_Store
 
-crawler/app/logs/
+logs/
 
-mongo_data
-
-*.dump
+*.db
