@@ -78,23 +78,30 @@ class Scraper:
         if not data:
             raise ValueError("Could not extract data.")
 
-        article = Article(
-            title=data.get("title"),  # or feed_item.title?
-            description=data.get("description"),
-            text=data.get("text"),
-            url=url,
-            published_at=datetime.datetime.fromisoformat(data.get("date")),
-            source=source.id,
-        )
-
         # text must be longer than n chars
-        if len(article.text) < self._config.MIN_TEXT_LENGTH:
-            raise ValueError(f"Article is too short: {len(article.text)} chars")
+        text = data.get("text")
+        if len(text) < self._config.MIN_TEXT_LENGTH:
+            raise ValueError(f"Article is too short: {len(text)} chars")
 
         # date must be withing last n days
-        difference = datetime.datetime.now() - article.published_at
+        published_at = datetime.datetime.fromisoformat(data.get("date"))
+        difference = datetime.datetime.now() - published_at
         if difference.days > self._config.KEEP_DAYS:
             raise ValueError(f"Article is too old: {difference.days} days")
+
+        # only save description if it's not the start of text
+        description = data.get("description")
+        if description == data.get("text")[: len(description)]:
+            description = None
+
+        article = Article(
+            title=data.get("title"),  # or feed_item.title?
+            description=description,
+            text=text,
+            url=url,
+            published_at=published_at,
+            source=source.id,
+        )
 
         return article
 
