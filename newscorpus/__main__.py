@@ -1,54 +1,89 @@
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 
-from sqlite_utils.db import Table
+import click
 
-from newscorpus import config
 from newscorpus.database import Database
 from newscorpus.logger import create_rotating_log
-from newscorpus.scraper import Article, scrape_source
+from newscorpus.scraper import Scraper, ScraperConfig
 from newscorpus.sources import SourceCollection
 
 
-def insert_articles(articles: list[Article], db_table: Table):
-    """Insert articles into database"""
+@click.command()
+@click.option(
+    "--src-path",
+    type=str,
+    help="Path to a sources.json file",
+)
+@click.option(
+    "--db-path",
+    type=str,
+    help="Path to a SQLite database file",
+)
+@click.option(
+    "--debug",
+    is_flag=True,
+    help="Enable debug mode",
+)
+@click.option(
+    "--workers",
+    type=int,
+    help="Maximum number of workers",
+    default=4,
+)
+@click.option(
+    "--keep",
+    type=int,
+    help="Don't save articles older than n days",
+    default=2,
+)
+@click.option(
+    "--min-length",
+    type=int,
+    help="Minimum text length",
+    default=350,
+)
+def init(
+    src_path: str | None,
+    db_path: str | None,
+    debug: bool,
+    workers: int,
+    keep: int,
+    min_length: int,
+):
+    start_time = datetime.now()
+    logger = create_rotating_log(debug)
+    logger.info("Downloading new articles")
+    logger.info(f"Ignoring articles older than {keep} days")
+    logger.info(f"Maximum number of workers: {workers}")
 
-    db_table.insert_all(
-        [article.model_dump() for article in articles],
-        batch_size=100000,  # type: ignore
-        ignore=True,  # type: ignore
+    sources = SourceCollection.from_file(src_path).root
+    db = Database(db_path)
+    scraper = Scraper(
+        ScraperConfig(
+            DEBUG=debug,
+            KEEP_DAYS=keep,
+            MIN_TEXT_LENGTH=min_length,
+        )
     )
 
-    # create index on url column if not exists
-    db_table.create_index(["url"], unique=True, if_not_exists=True)
+    # scrape sources
+    with ThreadPoolExecutor(max_workers=workers) as executor:
+        for source, articles in executor.map(scraper.scrape_source, sources):
+            # Convert articles to dictionaries
+            articles_dumped = [article.model_dump() for article in articles]
 
+            # Insert into database
+            insert_count = db.insert_articles(articles_dumped)
 
-def init():
-    start_time = datetime.now()
-    logger = create_rotating_log()
-    logger.info("Downloading new articles")
-    logger.info(f"Ignoring articles older than {config.KEEP_DAYS} days")
-    db = Database()
-    db_table = db.get_table("articles")
-
-    if config.MAX_WORKERS:
-        logger.info(f"Maximum crawler workers: {config.MAX_WORKERS}")
-
-    sources = SourceCollection.from_file().root
-
-    with ThreadPoolExecutor(max_workers=config.MAX_WORKERS) as executor:
-        for source, articles in executor.map(scrape_source, sources):
-            rows_count_before = db_table.count
-            insert_articles(articles, db_table)
-            rows_inserted_count = db_table.count - rows_count_before
             logger.info(
-                f"Inserted {rows_inserted_count}/{len(articles)} articles from {source}"  # noqa: E501
+                f"Inserted {insert_count}/{len(articles)} articles from {source.name}"
             )
 
     db.close()
 
     time_delta = datetime.now() - start_time
-    logger.info(f"Downloading done in {time_delta.total_seconds()}")
+    logger.info(f"Downloading done in {time_delta.total_seconds()} seconds")
 
 
 if __name__ == "__main__":

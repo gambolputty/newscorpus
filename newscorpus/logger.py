@@ -1,22 +1,20 @@
 import logging
 from logging.handlers import RotatingFileHandler
+from pathlib import Path
 
 import colorlog
 
-from newscorpus import config
-
-# logger examples: https://www.programcreek.com/python/example/1475/logging.handlers.RotatingFileHandler # noqa: E501
+LOG_DIR_PATH = Path(__file__).parent.parent.resolve().joinpath("logs")
 
 
-def create_rotating_log():
-    logs_dir_path = config.ROOT_PATH.joinpath("logs")
-    logs_dir_path.mkdir(exist_ok=True)
+def create_rotating_log(debug: bool = False):
+    LOG_DIR_PATH.mkdir(exist_ok=True)
 
     logger = logging.getLogger("rotating_log")
-    logger.setLevel(logging.INFO if not config.DEBUG else logging.DEBUG)
+    logger.setLevel(logging.INFO if not debug else logging.DEBUG)
 
     rotation_handler = RotatingFileHandler(
-        logs_dir_path.joinpath("crawler_log"),
+        LOG_DIR_PATH.joinpath("scraper_log"),
         maxBytes=1000000,
         backupCount=4,
         encoding="utf-8",
@@ -27,7 +25,7 @@ def create_rotating_log():
     logger.addHandler(rotation_handler)
 
     # add stream handler in debug mode
-    if config.DEBUG:
+    if debug:
         stream_handler = colorlog.StreamHandler()
         stream_handler.setFormatter(
             colorlog.ColoredFormatter(

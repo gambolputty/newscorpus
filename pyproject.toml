@@ -13,6 +13,7 @@ fake-useragent = "^1.4.0"
 sqlite-utils = "^3.36"
 pydantic = "^2.5.2"
 colorlog = "^6.8.0"
+click = "^8.1.7"
 
 
 [tool.poetry.group.dev.dependencies]
