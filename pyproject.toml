@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "newscorpus"
+version = "0.1.0"
+description = ""
+authors = ["Gregor Weichbrodt <gregorweichbrodt@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+feedparser = "^6.0.11"
+trafilatura = "^1.6.3"
+fake-useragent = "^1.4.0"
+sqlite-utils = "^3.36"
+pydantic = "^2.5.2"
+colorlog = "^6.8.0"
+click = "^8.1.7"
+
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.27.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+scrape = "newscorpus:init"
