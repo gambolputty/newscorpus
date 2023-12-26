@@ -1,6 +1,6 @@
 # Newscorpus 📰🐍
 <!-- Description of this project -->
-Takes a list of RSS feeds, downloads and processes new articles and stores the result in a SQLite database.
+Takes a list of RSS feeds, downloads found articles, processes them and stores the result in a SQLite database.
 
 This project uses [Trafilatura](https://github.com/adbar/trafilatura) to extract text from HTML pages and [feedparser](https://github.com/kurtmckee/feedparser) to parse RSS feeds.
 
