@@ -6,7 +6,7 @@ authors = ["Gregor Weichbrodt <gregorweichbrodt@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.10"
 feedparser = "^6.0.11"
 trafilatura = "^1.6.3"
 fake-useragent = "^1.4.0"
