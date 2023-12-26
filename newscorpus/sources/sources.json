@@ -22,7 +22,7 @@
     {
         "id": 4,
         "name": "SZ",
-        "url": "https://rss.sueddeutsche.de/alles"
+        "url": "https://rss.sueddeutsche.de/app/service/rss/alles/index.rss?output=rss"
     },
     {
         "id": 5,
@@ -133,6 +133,11 @@
         "id": 28,
         "name": "Deutsche Welle",
         "url": "https://rss.dw.com/xml/rss-de-all"
+    },
+    {
+        "id": 29,
+        "name": "MZ",
+        "url": "https://www.mz-web.de/feed/yahoo.rss"
     },
     {
         "id": 30,
