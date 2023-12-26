@@ -6,10 +6,11 @@ from dataclasses import dataclass
 
 import feedparser
 from fake_useragent import UserAgent
-from pydantic import BaseModel, ValidationError, field_serializer
+from pydantic import BaseModel, ValidationError
 from trafilatura import bare_extraction, fetch_url
 from trafilatura.settings import DEFAULT_CONFIG
 
+from newscorpus.database import Article
 from newscorpus.sources import Source
 
 TRAFI_CONFIG = deepcopy(DEFAULT_CONFIG)
@@ -26,19 +27,6 @@ class FeedItem:
     published: str
     published_parsed: tuple
     id: str
-
-
-class Article(BaseModel):
-    title: str
-    description: str | None = None
-    text: str
-    url: str
-    published_at: datetime.datetime
-    source: int
-
-    @field_serializer("published_at")
-    def serialize_published_at(self, published_at: datetime.datetime, _info):
-        return published_at.timestamp()
 
 
 # def parse_iso_timestamp(timestamp: str) -> datetime.datetime:
