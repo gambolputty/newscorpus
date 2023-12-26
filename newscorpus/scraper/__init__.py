@@ -79,7 +79,7 @@ class Scraper:
 
         # only save description if it's not the start of text
         description = data.get("description")
-        if description == data.get("text")[: len(description)]:
+        if description and description == data.get("text")[: len(description)]:
             description = None
 
         article = Article(
