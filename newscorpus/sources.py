@@ -12,7 +12,7 @@ from pydantic import BaseModel, RootModel, model_validator
 #     ...
 # ]
 
-DEFAULT_SOURCES_PATH = Path(__file__).parent.resolve().joinpath("sources.json")
+DEFAULT_SOURCES_PATH = Path(__file__).parent.parent.resolve().joinpath("sources.json")
 
 
 class Source(BaseModel):
