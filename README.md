@@ -24,7 +24,7 @@ poetry install
 ```
 
 ## Configuration
-Copy the example sources file and edit it to your liking.
+Copy the [example sources](sources.example.json) file and edit it to your liking.
 ```bash
 cp sources.example.json sources.json
 ```
@@ -52,7 +52,7 @@ poetry run scrape [OPTIONS]
 
 | Option             | Default                           | Description                                                                                                                        |
 |--------------------|-----------------------------------|------------------------------------------------------------------------------|
-| --src-path         | [`sources.json`](sources.json) | Path to a `sources.json`-file.            |
+| --src-path         | `sources.json`                    | Path to a `sources.json`-file.            |
 | --db-path          | `newscorpus.db`                   | Path to the SQLite database to use.                                          |
 | --debug            | _none_ (flag)                     | Show debug information.                                                      |
 | --workers          | `4`                               | Number of download workers.                                                  |
