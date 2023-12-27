@@ -33,6 +33,7 @@ class Database:
         self._db = SQLiteUtilsDatabase(path or DEFAULT_DATABASE_PATH)
 
         self.create_table_articles()
+        self.create_indices()
 
     def create_table_articles(self):
         self._db.create_table(

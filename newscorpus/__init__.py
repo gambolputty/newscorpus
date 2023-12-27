@@ -80,7 +80,6 @@ def init(
                 f"Inserted {insert_count}/{len(articles)} articles from {source.name}"
             )
 
-    db.create_indices()
     db.close()
 
     time_delta = datetime.now() - start_time
