@@ -15,8 +15,6 @@ def import_articles_from_json(json_file_path: Path):
     """
     import json
 
-    from dateparser import parse
-
     db = Database()
     db._db.execute("PRAGMA synchronous = OFF")
     db._db.execute("PRAGMA journal_mode = MEMORY")
@@ -28,7 +26,9 @@ def import_articles_from_json(json_file_path: Path):
         try:
             for line in tqdm(f):
                 old_article = json.loads(line)
-                published_at = parse(old_article["published_at"]["$date"])
+                published_at = datetime.datetime.fromisoformat(
+                    old_article["published_at"]["$date"]
+                )
 
                 if not published_at:
                     print("Could not parse date")
