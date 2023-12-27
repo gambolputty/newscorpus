@@ -77,6 +77,10 @@ class Scraper:
         if difference.days > self._config.KEEP_DAYS:
             raise ValueError(f"Article is too old: {difference.days} days")
 
+        # date cannot be in the future
+        if published_at > datetime.datetime.now():
+            raise ValueError(f"Article is from the future: {published_at}")
+
         # only save description if it's not the start of text
         description = data.get("description")
         if description and description == data.get("text")[: len(description)]:
