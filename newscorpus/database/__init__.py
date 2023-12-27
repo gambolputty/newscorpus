@@ -78,3 +78,12 @@ class Database:
         rows_inserted_count = self.get_rows_count("articles") - rows_count_before
 
         return rows_inserted_count
+
+    def iter_articles(self):
+        """
+        Iterate over all articles in database
+        """
+        for article in self.get_table("articles").rows_where(
+            order_by="published_at desc"
+        ):
+            yield Article(**article)
