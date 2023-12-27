@@ -24,7 +24,7 @@ poetry install
 ```
 
 ## Configuration
-Copy the [example sources](sources.example.json) file and edit it to your liking.
+Copy the [example sources file](sources.example.json) and edit it to your liking.
 ```bash
 cp sources.example.json sources.json
 ```
