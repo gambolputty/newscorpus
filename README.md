@@ -5,8 +5,15 @@ Takes a list of RSS feeds, downloads found articles, processes them and stores t
 This project uses [Trafilatura](https://github.com/adbar/trafilatura) to extract text from HTML pages and [feedparser](https://github.com/kurtmckee/feedparser) to parse RSS feeds.
 
 
-## Setup
+## Installation
 This project uses [Poetry](https://python-poetry.org/) to manage dependencies. Make sure you have it installed.
+
+### Via Poetry
+```bash
+poetry add "git+https://github.com/gambolputty/newscorpus.git"
+```
+
+### Via clone
 ```bash
 # Clone this repository
 git clone git@github.com:gambolputty/newscorpus.git
@@ -16,24 +23,57 @@ cd newscorpus
 poetry install
 ```
 
-## Usage
-To start the scraping process run:
-
-`poetry run scrape`
-
-There are some optional arguments:
-
 ## Configuration
+Copy the example sources file and edit it to your liking.
+```bash
+cp sources.example.json sources.json
+```
+It is expected to be in the following format:
+```json
+[
+  {
+    "id": 0,
+    "name": "Example",
+    "url": "https://example.com/rss",
+  },
+  ...
+]
+```
+
+## Usage
+
+### Starting the scraper (CLI)
+To start the scraping process run:
+```bash
+poetry run scrape [OPTIONS]
+```
+
+#### Options (optional)
 
 | Option             | Default                           | Description                                                                                                                        |
 |--------------------|-----------------------------------|------------------------------------------------------------------------------|
-| --src-path         | [`newscorpus/sources/sources.json`](newscorpus/sources/sources.json) | Path to a `sources.json`-file.            |
+| --src-path         | [`sources.json`](sources.json) | Path to a `sources.json`-file.            |
 | --db-path          | `newscorpus.db`                   | Path to the SQLite database to use.                                          |
 | --debug            | _none_ (flag)                     | Show debug information.                                                      |
 | --workers          | `4`                               | Number of download workers.                                                  |
 | --keep             | `2`                               | Don't save articles older than n days.                                       |
 | --min-length       | `350`                             | Don't process articles with a text length smaller than x characters.         |
 | --help             | _none_ (flag)                     | Show help menu.                                                              |
+
+### Accessing the database
+Access the database within your Python script:
+```python
+from newscorpus import Database
+
+db = Database()
+
+for article in db.iter_articles():
+    print(article.title)
+    print(article.published_at)
+    print(article.text)
+    print()
+```
+The `Database` class takes an optional `path` argument to specify the path to the database file.
 
 ## Acknowledgements
 - [IFG-Ticker](https://github.com/beyondopen/ifg-ticker) for some source
