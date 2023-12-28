@@ -63,7 +63,7 @@ poetry run scrape [OPTIONS]
 ### Accessing the database
 Access the database within your Python script:
 ```python
-from newscorpus import Database
+from newscorpus.database import Database
 
 db = Database()
 
