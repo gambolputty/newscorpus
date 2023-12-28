@@ -73,7 +73,7 @@ for article in db.iter_articles():
     print(article.text)
     print()
 ```
-Arguments to `iter_articles()` are the same as for [rows_where()](https://sqlite-utils.datasette.io/en/stable/reference.html#sqlite_utils.db.Queryable.rows_where) in [sqlite-utils](https://sqlite-utils.datasette.io/).
+Arguments to `iter_articles()` are the same as for `rows_where()`in [sqlite-utils](https://sqlite-utils.datasette.io/) ([Docs](https://sqlite-utils.datasette.io/en/stable/python-api.html#listing-rows), [Reference](https://sqlite-utils.datasette.io/en/stable/reference.html#sqlite_utils.db.Queryable.rows_where)).
 
 The `Database` class takes an optional `path` argument to specify the path to the database file.
 
