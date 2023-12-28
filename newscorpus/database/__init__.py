@@ -79,11 +79,16 @@ class Database:
 
         return rows_inserted_count
 
-    def iter_articles(self):
+    def iter_articles(self, *args, **kwargs):
         """
-        Iterate over all articles in database
+        A generator method to iterate over all articles in database.
+        Passes function arguments down to sqlite_utils.db.Queryable.rows_where
+        and yield Article objects.
         """
-        for article in self.get_table("articles").rows_where(
-            order_by="published_at desc"
-        ):
+
+        # set default kwargs
+        default_kwargs = {"order_by": "published_at desc"}
+        kwargs = {**default_kwargs, **kwargs}
+
+        for article in self.get_table("articles").rows_where(*args, **kwargs):
             yield Article(**article)
