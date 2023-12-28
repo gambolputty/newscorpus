@@ -25,4 +25,4 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-scrape = "newscorpus.scrape:init"
+scrape = "newscorpus.main:init"
