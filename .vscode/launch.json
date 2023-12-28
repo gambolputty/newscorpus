@@ -8,7 +8,7 @@
             "name": "Python-Modul",
             "type": "python",
             "request": "launch",
-            "module": "newscorpus",
+            "module": "newscorpus.scrape",
             "justMyCode": true
         }
     ]

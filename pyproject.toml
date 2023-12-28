@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "newscorpus"
-version = "2.0.2"
+version = "2.0.3"
 description = ""
 authors = ["Gregor Weichbrodt <gregorweichbrodt@gmail.com>"]
 readme = "README.md"
@@ -25,4 +25,4 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-scrape = "newscorpus:init"
+scrape = "newscorpus.scrape:init"
